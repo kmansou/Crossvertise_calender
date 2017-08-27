@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Crossvertise.Calender.DAL.Domain.Repository;
 using Crossvertise.Calender.DAL.Domain.UnitOfWork;
 using Crossvertise.Calender.DAL.EF.Context;
