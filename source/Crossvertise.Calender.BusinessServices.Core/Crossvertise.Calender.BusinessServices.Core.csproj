@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\InvalidMonthException.cs" />
     <Compile Include="Models\EventAttendeeModel.cs" />
     <Compile Include="Models\EventDetailsModel.cs" />
     <Compile Include="Models\EventModel.cs" />

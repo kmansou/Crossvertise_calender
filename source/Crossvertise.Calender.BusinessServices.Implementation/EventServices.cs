@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
+using Crossvertise.Calender.BusinessServices.Core.Exceptions;
 using Crossvertise.Calender.DAL.Domain;
 using Crossvertise.Calender.DAL.Domain.UnitOfWork;
 using Crossvertise.Calender.BusinessServices.Core.Models;
@@ -26,10 +27,13 @@ namespace Crossvertise.Calender.BusinessServices.Implementation
             mapper = config.CreateMapper();
         }
 
-        public IEnumerable<EventModel> GetMonthEvents(int month)
+        public IEnumerable<EventModel> GetMonthEvents(int monthId)
         {
+            if(monthId < 1 || monthId > 12)
+                throw new InvalidMonthException(); 
+
             var events = _unitOfWork.EventRepository.GetMany(e =>
-                e.EventDateTime.Year == DateTime.Now.Year && e.EventDateTime.Month == month);
+                e.EventDateTime.Year == DateTime.Now.Year && e.EventDateTime.Month == monthId);
 
             if (events != null && events.Any())
                 return mapper.Map<List<Event>, List<EventModel>>(events.ToList());

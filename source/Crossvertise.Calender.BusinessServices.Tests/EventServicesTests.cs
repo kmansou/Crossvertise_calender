@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Crossvertise.Calender.BusinessServices.Core.Exceptions;
 using Crossvertise.Calender.BusinessServices.Core.Models;
 using Crossvertise.Calender.BusinessServices.Core.Services;
 using Crossvertise.Calender.DAL.Domain;
@@ -48,7 +49,7 @@ namespace Crossvertise.Calender.BusinessServices.Tests
         {
             _events = DataInitializers.SetUpEvents();
         }
-        
+
 
         /// <summary>
         /// TestFixture teardown
@@ -80,54 +81,86 @@ namespace Crossvertise.Calender.BusinessServices.Tests
             _eventServices = null;
             _unitOfWork = null;
             _eventRepository = null;
-            //if (_dbContext != null)
-              //  _dbContext.Dispose();
+            if (_dbContext != null)
+                _dbContext.Dispose();
         }
 
 
         [Test]
         public void GetMonthEventsTest()
         {
-            var events = _eventServices.GetMonthEvents(2);
-            if (events != null)
-            {
-                var eventModels = mapper.Map<List<EventModel>, List<Event>>(events.ToList());
-                var eventComparer = new EventComparerForEventModels();
-                var actualResult = eventModels
-                    .OrderBy(e => e, eventComparer);
-                var expectedResult = _events
-                    .FindAll(e => e.EventDateTime.Year == DateTime.Now.Year && e.EventDateTime.Month == 2)
-                    .OrderBy(e => e, eventComparer);
+            // given
+            int monthId = 2;
+            var eventComparer = new EventComparerForEventModels();
+            var expectedResult = _events
+                .FindAll(e => e.EventDateTime.Year == DateTime.Now.Year && e.EventDateTime.Month == monthId)
+                .OrderBy(e => e, eventComparer);
 
-                CollectionAssert.AreEqual(actualResult, expectedResult, eventComparer);
-            }
+            // when
+            var events = _eventServices.GetMonthEvents(monthId);
+
+            // then
+            Assert.IsNotNull(events);
+            CollectionAssert.IsNotEmpty(events);
+
+            var eventModels = mapper.Map<List<EventModel>, List<Event>>(events.ToList());
+            var actualResult = eventModels
+                .OrderBy(e => e, eventComparer);
+
+            CollectionAssert.AreEqual(actualResult, expectedResult, eventComparer);
         }
 
         [Test]
         public void GetMonthEventsTestForNull()
         {
-            var events = _eventServices.GetMonthEvents(13);
-            Assert.Null(events);
+            // given
+            int monthId = 4;
+
+            // when
+            var events = _eventServices.GetMonthEvents(monthId);
+
+            // then
+            Assert.IsNull(events);
+        }
+
+        [Test]
+        public void GetMonthEvents_InvalidMonthId_ThrowsException()
+        {
+            // given there's no month with Id = 13 , i.e maxId = 12
+            int monthId = 13;
+
+            // expect
+            Assert.That(() => _eventServices.GetMonthEvents(monthId),
+                Throws.TypeOf<InvalidMonthException>());
         }
 
         [Test]
         public void GetEventDetailsByRightId()
         {
-            var eventDetails = _eventServices.GetEventDetails(1);
-            if (eventDetails != null)
-            {
-                var actualResult = mapper.Map<EventDetailsModel, Event>(eventDetails);
-                var eventComparer = new EventEqualityComparerForEventDetails();
-                var expectedResult = _events.Find(e => e.Id == 1);
+            // given
+            int eventId = 1;
+            var eventComparer = new EventEqualityComparerForEventDetails();
+            var expectedResult = _events.Find(e => e.Id == eventId);
 
-                Assert.IsTrue(eventComparer.Equals(actualResult, expectedResult));
-            }
+            // when
+            var eventDetails = _eventServices.GetEventDetails(eventId);
+
+            // then
+            Assert.IsNotNull(eventDetails);
+            var actualResult = mapper.Map<EventDetailsModel, Event>(eventDetails);
+            Assert.IsTrue(eventComparer.Equals(actualResult, expectedResult));
         }
 
         [Test]
         public void GetEventDetailsByWrongId()
         {
-            var eventDetails = _eventServices.GetEventDetails(10);
+            // given, no eventId in mock data = 10
+            int eventId = 10;
+
+            // when
+            var eventDetails = _eventServices.GetEventDetails(eventId);
+
+            // then
             Assert.Null(eventDetails);
         }
     }
