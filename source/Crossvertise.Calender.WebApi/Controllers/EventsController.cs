@@ -15,9 +15,9 @@ namespace Crossvertise.Calender.WebApi.Controllers
     {
         private readonly IEventServices _eventServices;
 
-        public EventsController()
+        public EventsController(IEventServices eventServices)
         {
-            _eventServices = new EventServices(new EFxCalenderUoW());
+            _eventServices = eventServices;
         }
 
         // GET api/Events/GetMonthEvents?monthId={monthId}
