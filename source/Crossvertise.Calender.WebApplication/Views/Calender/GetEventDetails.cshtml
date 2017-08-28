@@ -1,0 +1,56 @@
+﻿@model Crossvertise.Calender.WebApplication.Models.EventDetailsViewModel
+
+@{
+    ViewBag.Title = "Calender";
+}
+
+<h2>Calender</h2>
+<h4>Choose your month:</h4>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li class="@(Model.MonthEventList != null && Model.MonthEventList.MonthId == 1 ? "active" : null)">@Html.ActionLink("Jan", "GetEventList", "Calender", new { monthId = 1 }, null)</li>
+            <li class="@(Model.MonthEventList != null && Model.MonthEventList.MonthId == 2 ? "active" : null)">@Html.ActionLink("Feb", "GetEventList", "Calender", new { monthId = 2 }, null)</li>
+            <li class="@(Model.MonthEventList != null && Model.MonthEventList.MonthId == 3 ? "active" : null)">@Html.ActionLink("Mar", "GetEventList", "Calender", new { monthId = 3 }, null)</li>
+            <li class="@(Model.MonthEventList != null && Model.MonthEventList.MonthId == 4 ? "active" : null)">@Html.ActionLink("Apr", "GetEventList", "Calender", new { monthId = 4 }, null)</li>
+            <li class="@(Model.MonthEventList != null && Model.MonthEventList.MonthId == 5 ? "active" : null)">@Html.ActionLink("May", "GetEventList", "Calender", new { monthId = 5 }, null)</li>
+            <li class="@(Model.MonthEventList != null && Model.MonthEventList.MonthId == 6 ? "active" : null)">@Html.ActionLink("Jun", "GetEventList", "Calender", new { monthId = 6 }, null)</li>
+            <li class="@(Model.MonthEventList != null && Model.MonthEventList.MonthId == 7 ? "active" : null)">@Html.ActionLink("Jul", "GetEventList", "Calender", new { monthId = 7 }, null)</li>
+            <li class="@(Model.MonthEventList != null && Model.MonthEventList.MonthId == 8 ? "active" : null)">@Html.ActionLink("Aug", "GetEventList", "Calender", new { monthId = 8 }, null)</li>
+            <li class="@(Model.MonthEventList != null && Model.MonthEventList.MonthId == 9 ? "active" : null)">@Html.ActionLink("Sep", "GetEventList", "Calender", new { monthId = 9 }, null)</li>
+            <li class="@(Model.MonthEventList != null && Model.MonthEventList.MonthId == 10 ? "active" : null)">@Html.ActionLink("Oct", "GetEventList", "Calender", new { monthId = 10 }, null)</li>
+            <li class="@(Model.MonthEventList != null && Model.MonthEventList.MonthId == 11 ? "active" : null)">@Html.ActionLink("Nov", "GetEventList", "Calender", new { monthId = 11 }, null)</li>
+            <li class="@(Model.MonthEventList != null && Model.MonthEventList.MonthId == 12 ? "active" : null)">@Html.ActionLink("Dec", "GetEventList", "Calender", new { monthId = 12 }, null)</li>
+        </ul>
+    </div>
+</nav>
+
+<div class="row">
+    <div class="col-md-6" style="border: 1px solid black;">
+        @if (Model.MonthEventList == null || Model.MonthEventList.Events == null || Model.MonthEventList.Events.Length == 0)
+        {
+            <p>No Events in this month</p>
+        }
+        else
+        {
+            foreach (var item in Model.MonthEventList.Events)
+            {
+                <p>@Html.DisplayFor(modelItem => item.EventDateTime) - @Html.ActionLink(item.Description, "GetEventDetails", "Calender", new { eventId = item.Id }, null)</p>
+            }
+        }
+    </div>
+    <div class="col-md-6" style="border: 1px solid black;">
+        <p>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(modelItem => Model.Description)<br/>
+        @Html.DisplayNameFor(model => model.EventDateTime): @Html.DisplayFor(modelItem => Model.EventDateTime)<br/>
+        @Html.DisplayNameFor(model => model.OrganizerFullName): @Html.DisplayFor(modelItem => Model.OrganizerFullName)<br/>
+        @Html.DisplayNameFor(model => model.Attendees): 
+            <ul>
+                @foreach (var item in Model.Attendees)
+                {
+                    <li>@item.AttendeeFullName</li>
+                }
+            </ul>
+        </p>
+    </div>
+</div>
