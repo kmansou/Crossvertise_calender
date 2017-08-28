@@ -1,10 +1,10 @@
 using Microsoft.Practices.Unity;
 using System.Web.Http;
 using Crossvertise.Calender.BusinessServices.Core.Services;
-using Crossvertise.Calender.BusinessServices.Implementation;
 using Crossvertise.Calender.DAL.Domain.UnitOfWork;
-using Crossvertise.Calender.DAL.EF.UnitOfWork;
 using Unity.WebApi;
+using Crossvertise.Calender.DependencyResolver;
+using System.Configuration;
 
 namespace Crossvertise.Calender.WebApi
 {
@@ -18,10 +18,15 @@ namespace Crossvertise.Calender.WebApi
             // it is NOT necessary to register your controllers
             
             // e.g. container.RegisterType<ITestService, TestService>();
-            container.RegisterType<IUnitOfWork, EFxCalenderUoW>(new ContainerControlledLifetimeManager());
-            container.RegisterType<IEventServices, EventServices>(new ContainerControlledLifetimeManager());
-
+            regeisterTypes(container);
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
+        }
+
+        private static void regeisterTypes(IUnityContainer container)
+        {
+            var appSettings = ConfigurationManager.AppSettings;
+            ComponentLoader.LoadContainer(container, ".\\bin", appSettings["DataAccessLayerImplementation"]);
+            ComponentLoader.LoadContainer(container, ".\\bin", appSettings["BusinessLayerImpelementation"]);
         }
     }
 }

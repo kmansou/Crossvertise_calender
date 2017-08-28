@@ -1,7 +1,4 @@
 ﻿using Crossvertise.Calender.BusinessServices.Core.Services;
-using Crossvertise.Calender.BusinessServices.Implementation;
-using Crossvertise.Calender.DAL.EF.UnitOfWork;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;

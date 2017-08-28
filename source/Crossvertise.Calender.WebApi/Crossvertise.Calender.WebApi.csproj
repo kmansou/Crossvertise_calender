@@ -248,17 +248,13 @@
       <Project>{1CD3C95A-9ACD-4DCE-B511-75452A77701E}</Project>
       <Name>Crossvertise.Calender.BusinessServices.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Crossvertise.Calender.BusinessServices.Implementation\Crossvertise.Calender.BusinessServices.Implementation.csproj">
-      <Project>{EFE6C435-E675-47D2-AF25-043CA9AD80F9}</Project>
-      <Name>Crossvertise.Calender.BusinessServices.Implementation</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Crossvertise.Calender.DAL.Domain\Crossvertise.Calender.DAL.Domain.csproj">
       <Project>{612622FB-D433-4465-9A7D-DBEEAFE5B8A9}</Project>
       <Name>Crossvertise.Calender.DAL.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Crossvertise.Calender.DAL.EF\Crossvertise.Calender.DAL.EF.csproj">
-      <Project>{E68E16BF-8F29-49B4-8B81-39CB5DAEA8E8}</Project>
-      <Name>Crossvertise.Calender.DAL.EF</Name>
+    <ProjectReference Include="..\Crossvertise.Calender.DependencyResolver\Crossvertise.Calender.DependencyResolver.csproj">
+      <Project>{3511259d-c90c-46e2-986d-24655f7f6ee2}</Project>
+      <Name>Crossvertise.Calender.DependencyResolver</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
