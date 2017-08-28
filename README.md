@@ -4,17 +4,22 @@ This is my implementation for crossvertise programming excercies
 In this task I'm performing read operations for calender enteries in db
 by getting each month events and also we can explore any event details
 
+Prereq:
+1. .Net Framework 4.6.2
+2. MS Sql server
+
 How to run:
 1. Launch source\Crossvertise.Calender.sln
-2. Open Nuget Package Manager Console
+2. you may need to change CalenderDbEntities connection string if MS Sql server installed on another machine (currently it's using local)
+3. Open Nuget Package Manager Console
 	a. Make sure "Crossvertise.Calender.WebApi" is your startup project in the solution
 	b. choose "Crossvertise.Calender.DAL.EF" for "Default Project"
 	c. execute command: "Update-Database" (this is to create database from code first and seed database)
 	d. you may need to add enteries in db or by Seed Method in C:\Users\KarimMansour\Documents\GitHub\Crossvertise_calender\source\Crossvertise.Calender.DAL.EF\Migrations\Configuration.cs
-3. Debug new instance from Backend\Crossvertise.Calender.WebApi (Web api service for backend)
-4. Debug new instance from Frontend\Crossvertise.Calender.WebApplication (web application frontend)
-5. from upper navigation bar choose "Calender"
-5. Database has only one event entry. so, please choose "Aug" month to get events 
+4. Debug new instance from Backend\Crossvertise.Calender.WebApi (Web api service for backend)
+5. Debug new instance from Frontend\Crossvertise.Calender.WebApplication (web application frontend)
+6. from upper navigation bar choose "Calender"
+7. Database has only one event entry. so, please choose "Aug" month to get events 
 
 Comments:
 1. In this project I was focusing on:
