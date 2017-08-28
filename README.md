@@ -15,7 +15,7 @@ How to run:
 	a. Make sure "Crossvertise.Calender.WebApi" is your startup project in the solution
 	b. choose "Crossvertise.Calender.DAL.EF" for "Default Project"
 	c. execute command: "Update-Database" (this is to create database from code first and seed database)
-	d. you may need to add enteries in db or by Seed Method in C:\Users\KarimMansour\Documents\GitHub\Crossvertise_calender\source\Crossvertise.Calender.DAL.EF\Migrations\Configuration.cs
+	d. you may need to add enteries in db or by Seed Method in: Crossvertise.Calender.DAL.EF\Migrations\Configuration.cs
 4. Debug new instance from Backend\Crossvertise.Calender.WebApi (Web api service for backend)
 5. Debug new instance from Frontend\Crossvertise.Calender.WebApplication (web application frontend)
 6. from upper navigation bar choose "Calender"
@@ -27,7 +27,7 @@ Comments:
 	b. separation of concerns ( that's why you will see a lot of projects in the solution, 6 projects for backend, 1 project for frontend and 2 for testing
 								also you will find me using Management extensibility framework for injecting backend layers beside using Unity IoC container)
 2. I found myself out of time that's why I used Razor and it's not the best option for frontend
-3. to accomplish the reauired UI you will find me repating my self in code for Calender controller and hitting backend twice in a single frontend request
+3. to accomplish the required UI you will find me repeating myself in code for Calender controller and hitting backend twice in a single frontend request
    but this is to make application like single page I've more time I would prefer using Angular 4 to develop frontend
 4. I chose to do unit testing for Business logic layer and if I have more time I would develop unit testing for WebApi as well,
    that's why you will find "Crossvertise.Calender.Tests.Common" so as not repeat my logic again for WebApi unit testing
