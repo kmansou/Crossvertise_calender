@@ -15,6 +15,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossvertise.Calender.WebAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossvertise.Calender.DependencyResolver", "Crossvertise.Calender.DependencyResolver\Crossvertise.Calender.DependencyResolver.csproj", "{3511259D-C90C-46E2-986D-24655F7F6EE2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{B21A1F64-52A0-487A-8736-5DFF5ADE4639}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1742B31E-121A-4100-B765-327FF63FDF7F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{791DA3C7-C0B8-41D9-8F4E-7C8A7957F03F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +54,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1CD3C95A-9ACD-4DCE-B511-75452A77701E} = {B21A1F64-52A0-487A-8736-5DFF5ADE4639}
+		{EFE6C435-E675-47D2-AF25-043CA9AD80F9} = {B21A1F64-52A0-487A-8736-5DFF5ADE4639}
+		{612622FB-D433-4465-9A7D-DBEEAFE5B8A9} = {B21A1F64-52A0-487A-8736-5DFF5ADE4639}
+		{E68E16BF-8F29-49B4-8B81-39CB5DAEA8E8} = {B21A1F64-52A0-487A-8736-5DFF5ADE4639}
+		{3511259D-C90C-46E2-986D-24655F7F6EE2} = {B21A1F64-52A0-487A-8736-5DFF5ADE4639}
+		{6B1F74BB-4B0E-45F4-9D4A-13E1FF403E1D} = {B21A1F64-52A0-487A-8736-5DFF5ADE4639}
 	EndGlobalSection
 EndGlobal
