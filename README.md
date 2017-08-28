@@ -15,7 +15,7 @@ How to run:
 	a. Make sure "Crossvertise.Calender.WebApi" is your startup project in the solution
 	b. choose "Crossvertise.Calender.DAL.EF" for "Default Project"
 	c. execute command: "Update-Database" (this is to create database from code first and seed database)
-	d. you may need to add enteries in db or by Seed Method in C:\Users\KarimMansour\Documents\GitHub\Crossvertise_calender\source\Crossvertise.Calender.DAL.EF\Migrations\Configuration.cs
+	d. you may need to add enteries in db or by Seed Method in: Crossvertise.Calender.DAL.EF\Migrations\Configuration.cs
 4. Debug new instance from Backend\Crossvertise.Calender.WebApi (Web api service for backend)
 5. Debug new instance from Frontend\Crossvertise.Calender.WebApplication (web application frontend)
 6. from upper navigation bar choose "Calender"
