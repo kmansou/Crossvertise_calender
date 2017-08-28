@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossvertise.Calender.Busin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossvertise.Calender.BusinessServices.Implementation", "Crossvertise.Calender.BusinessServices.Implementation\Crossvertise.Calender.BusinessServices.Implementation.csproj", "{EFE6C435-E675-47D2-AF25-043CA9AD80F9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossvertise.Calender.WebApi", "Crossvertise.Calender.WebApi\Crossvertise.Calender.WebApi.csproj", "{6B1F74BB-4B0E-45F4-9D4A-13E1FF403E1D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{EFE6C435-E675-47D2-AF25-043CA9AD80F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFE6C435-E675-47D2-AF25-043CA9AD80F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFE6C435-E675-47D2-AF25-043CA9AD80F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B1F74BB-4B0E-45F4-9D4A-13E1FF403E1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B1F74BB-4B0E-45F4-9D4A-13E1FF403E1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B1F74BB-4B0E-45F4-9D4A-13E1FF403E1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B1F74BB-4B0E-45F4-9D4A-13E1FF403E1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
