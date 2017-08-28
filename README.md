@@ -27,7 +27,7 @@ Comments:
 	b. separation of concerns ( that's why you will see a lot of projects in the solution, 6 projects for backend, 1 project for frontend and 2 for testing
 								also you will find me using Management extensibility framework for injecting backend layers beside using Unity IoC container)
 2. I found myself out of time that's why I used Razor and it's not the best option for frontend
-3. to accomplish the reauired UI you will find me repating my self in code for Calender controller and hitting backend twice in a single frontend request
+3. to accomplish the required UI you will find me repeating myself in code for Calender controller and hitting backend twice in a single frontend request
    but this is to make application like single page I've more time I would prefer using Angular 4 to develop frontend
 4. I chose to do unit testing for Business logic layer and if I have more time I would develop unit testing for WebApi as well,
    that's why you will find "Crossvertise.Calender.Tests.Common" so as not repeat my logic again for WebApi unit testing
